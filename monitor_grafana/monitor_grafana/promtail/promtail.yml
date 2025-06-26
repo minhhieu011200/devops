@@ -1,0 +1,27 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+    batchsize: 102400
+    batchwait: 1s
+
+scrape_configs:
+  - job_name: myapp_logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: test-ddd
+          __path__: /var/log/myapp/test-ddd/*.log
+    pipeline_stages:
+      - regex:
+          expression: 'trace=(?P<traceid>[a-zA-Z0-9]+)\] \[span=(?P<spanid>[a-zA-Z0-9]+)'
+      - labels:
+          traceid:
+          spanid:
+

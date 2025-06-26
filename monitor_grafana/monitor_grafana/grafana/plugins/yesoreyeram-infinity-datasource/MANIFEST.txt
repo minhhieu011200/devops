@@ -1,0 +1,50 @@
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "community",
+  "signedByOrg": "yesoreyeram",
+  "signedByOrgName": "Sriramajeyam Sugumaran",
+  "rootUrls": [],
+  "plugin": "yesoreyeram-infinity-datasource",
+  "version": "2.1.0",
+  "time": 1698929647983,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "gpx_infinity_darwin_amd64": "938486a759b866f1b09387135a97bbb677769c6b4b6a308b8f69ee7cfd2e3f62",
+    "CHANGELOG.md": "8dda0936b709579f110e667f758e1b52518c6b99b5185f3e491737d493856fa4",
+    "plugin.json": "2929f786a1f3fccdec7d97d1e42c62b56c3057a1662f0103e976f5e703a74899",
+    "img/slide-rest-api.png": "cf72349768e0ccf19a856d86e97c8e67dcdadfcee49e73ae5acbe781c3ae0c79",
+    "img/slide-variables.png": "8ed0cd7b1ac00bd2c7fa6e72c513b678c39ba7d63030f06e8695cb1d352e3b34",
+    "img/oauth-2-sm.png": "9945bb307d5545369d50381acc97d48b4a98433831f14e99eb839f0970a91258",
+    "img/slide-features.png": "58aba3b2f2d73ee99945cba9746463f0039d8afb5366ed8d42db62145b914d0f",
+    "img/icon.svg": "e498b00e1cc3c9e8b65a2b8320b7d170c6da61d424fe5f3f3fdf9963204449ae",
+    "img/homepage-bg.svg": "97ec32b2c542bcb63b7fa7659e42a876a5b9ec00aef7a486f2dc41b83d7d9eb8",
+    "img/aws.jpg": "e682ccc794708fd3eb32a3fb5e2bcccd8ff3b54f30eba2086fd1b28a82020d81",
+    "img/slide-series.png": "f7d523c39f9d4567974c37432f047e4e8944cb92dc2c9a4424757ce5e54dc3a7",
+    "module.js.map": "c37e8b1a15c866c23a21c61c205ba60ea74a6861b900849bdad0b6cfb6ea8de8",
+    "README.md": "49648ad760beaf2b7afca4ea2aed4cc5948c1f6bc99a6ef6e4a29e29131c9df8",
+    "gpx_infinity_darwin_arm64": "4888b3e26c2867a75947ddb491ada4c3190bdc14d5e0578d71dad164d2ab05f5",
+    "go_plugin_build_manifest": "35ffb3e1e9f5ca69291bc1336b583d695a0662cd89a0941f92c32cc643347f17",
+    "module.js.LICENSE.txt": "99be0382b70276cfb5fa192a434dcddf0c6ff30ea66b80404f2eacd27906fc81",
+    "gpx_infinity_windows_amd64.exe": "b0ef3b0ee157d3d722fa53dd1060daec438bcac2861de93e512f906921c11aab",
+    "gpx_infinity_linux_arm64": "250bc63aecbbd58c010919d52c47d5897dbddb99f8752b0adfc9ecfed45ad0a5",
+    "gpx_infinity_linux_amd64": "56d078fe271446791e35bb3a6aec7eaeafb4bcc63e8299558efaa39f0030918d",
+    "LICENSE": "cf7c88bac56d05ba8bae0401ffd8f72334bf2b685a8e4cbae76c3b1d11c6c24e",
+    "module.js": "c32f9ab541a31ed47130930f39f3a18b03b397ff582c631dea040ab86cfcc08f",
+    "gpx_infinity_linux_arm": "57dfa86d1785b74ade501aeee9188de48fbc30b20f9ae31801484dd9d0c87eb1"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+Version: OpenPGP.js v4.10.10
+Comment: https://openpgpjs.org
+
+wrkEARMKAAYFAmVDm/AAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm51dAAgkBk6c2O9t9SLgp5gTZeYmMZcQQrj6Nv1SmTMbrkRTXVKhl7OOG
+6O32q+nd93qCBiZJcmnn9YOFYkb9EeOAYz8acB8CCQGdLbn1nKCP+IJyGoJd
+KAgLfj0WyMP9GrHxHFJ0NJNePFNswgqPIbcU+B8hDHY8JICJ7IyN3SQMRtzZ
+qTWBu0BghQ==
+=cMLI
+-----END PGP SIGNATURE-----

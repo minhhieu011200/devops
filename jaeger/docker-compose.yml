@@ -1,0 +1,19 @@
+version: '3'
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:1.6.0
+    container_name: jaeger
+    ports:
+      - "5775:5775"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14250:14250"
+      - "14267:14267"
+      - "14268:14268"
+      - "9431:9431"
+    volumes:
+      - ./jaeger-collector-storage:/var/lib/jaeger
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_HTTP_PORT: 9411

@@ -1,0 +1,87 @@
+version: "3.3"
+networks:
+  exporter:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.33.0.0/16
+services:
+  nodeexporter:
+    image: docker-registry.fss.com.vn/monitor/node-exporter
+    restart: unless-stopped
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    networks:
+      - exporter
+
+  cadvisor:
+    image: docker-registry.fss.com.vn/monitor/cadvisor
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    privileged: true
+    command:
+      - '-housekeeping_interval=30s'
+      - '-docker_only=true'
+    devices:
+      - /dev/kmsg:/dev/kmsg
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /app/docker/:/var/lib/docker:ro
+      - /cgroup:/cgroup:ro
+    networks:
+      - exporter
+
+  # rabbitmq-exporter:
+  #   image: docker-registry.fss.com.vn/monitor/rabbitmq-exporter
+  #   restart: unless-stopped
+  #   ports:
+  #     - "9419:9419"
+  #   environment:
+  #     - RABBIT_URL=http://192.168.18.241:15672
+  #     - RABBIT_USER=bus
+  #     - RABBIT_PASSWORD=bus1234
+  #   networks:
+  #     - exporter
+      
+  # redis-exporter:
+  #   image: docker-registry.fss.com.vn/monitor/redis-exporter
+  #   restart: unless-stopped
+  #   ports:
+  #     - "9121:9121"
+  #   environment:
+  #     - REDIS_ADDR=redis://192.168.18.241:6379
+  #     - REDIS_EXPORTER_EXPORT_CLIENT_LIST=true
+  #   networks:
+  #     - exporter
+      
+  # haproxy-exporter:
+  #   image: docker-registry.fss.com.vn/monitor/haproxy-exporter
+  #   restart: unless-stopped
+  #   command: 
+  #     - '--haproxy.scrape-uri=http://admin:admin@192.168.18.241:9001/haproxy?stats;csv'
+  #   ports:
+  #     - 9101:9101
+  #   networks:
+  #     - exporter
+
+  # postgres-exporter:
+  #   image: docker-registry.fss.com.vn/monitor/postgres-exporter
+  #   restart: unless-stopped
+  #   environment:
+  #     DATA_SOURCE_NAME: "postgresql://postgres:postgres@192.168.18.241/postgres?sslmode=disable"    
+  #   ports:
+  #     - "9187:9187"    
+  #   networks:
+  #     - exporter

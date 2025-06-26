@@ -1,0 +1,23 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 5m
+  repeat_interval: 3h
+  receiver: 'slack'
+
+receivers:
+  - name: 'slack'
+    slack_configs:
+      - api_url: 'https://hooks.slack.com/services/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'  # Replace with your Slack Webhook URL
+        # channel: '#your-channel'  # Replace with the Slack channel you want alerts sent to
+        send_resolved: true  # Sends a message when the alert is resolved
+        title: '{{ .CommonLabels.alertname }}'
+        text: |
+          *Alert:* {{ .CommonLabels.alertname }}
+          *Severity:* {{ .CommonLabels.severity }}
+          *Description:* {{ .Annotations.description }}
+          *Instance:* {{ .CommonLabels.instance }}
+        # Optional: Customize further fields like color, attachments, etc.

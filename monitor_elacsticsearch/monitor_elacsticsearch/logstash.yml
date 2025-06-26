@@ -1,0 +1,24 @@
+version: "3.3"
+networks:
+  monitor-elk:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.32.0.0/16
+services:
+  logstash:
+    networks:
+      - monitor-elk
+    image: docker.elastic.co/logstash/logstash:8.11.4
+    restart: always
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+    ports:
+      - 5044:5044
+      - 50000:50000/tcp
+      - 50000:50000/udp
+      - 9600:9600
+#    depends_on:
+ #     - elasticsearch
+
